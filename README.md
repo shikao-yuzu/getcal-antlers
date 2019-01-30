@@ -1,0 +1,2 @@
+# getcal-antlers
+鹿島アントラーズの試合日程をGoogleカレンダー用のCSVに出力
