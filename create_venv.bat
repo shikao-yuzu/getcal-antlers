@@ -11,6 +11,7 @@ rem install
 .\venv\Scripts\python -m pip install --upgrade pip
 pip install requests
 pip install beautifulsoup4
+pip install jaconv
 
 pause
 
