@@ -1,19 +1,21 @@
 @echo off
 setlocal
 
-if not exist ".\venv\Scripts\activate.bat" (
+set VENV_SCRIPTS=".\venv\Scripts\"
+
+if not exist %VENV_SCRIPTS%activate.bat (
   call create_venv.bat
 )
 
 rem activate virtual env
-call .\venv\Scripts\activate.bat
+call %VENV_SCRIPTS%activate.bat
 
 rem run
-.\venv\Scripts\python.exe getcal-antlers.py
+%VENV_SCRIPTS%python getcal-antlers.py
 
 pause
 
 rem deactivate virtual env
-call .\venv\Scripts\deactivate.bat
+call %VENV_SCRIPTS%deactivate.bat
 
 endlocal
