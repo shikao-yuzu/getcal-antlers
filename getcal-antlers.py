@@ -1,3 +1,4 @@
+import os
 import csv
 import re
 import datetime
@@ -105,8 +106,17 @@ def main():
     # HTTPレスポンスボディを取得
     html = r.text
 
+    # 取得元のHTMLタグが壊れていて読み込みに失敗するため，パース前にHTMLファイルの2639行目を削除
+    # (2019/07/02時点)
+    html_mod = ''
+    for idx, s in enumerate(html.splitlines()):
+        if (idx==2639-1):
+            pass
+        else:
+            html_mod += s + os.linesep
+
     # BeautifulSoupオブジェクトの生成
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html_mod, 'html.parser')
 
     # 出場大会のリストを構築
     competitions = []
