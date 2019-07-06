@@ -106,11 +106,11 @@ def main():
     # HTTPレスポンスボディを取得
     html = r.text
 
-    # 取得元のHTMLタグが壊れていて読み込みに失敗するため，パース前にHTMLファイルの2639行目を削除
-    # (2019/07/02時点)
+    # 取得元のHTMLタグが壊れていて読み込みに失敗するため，パース前にHTMLファイルの該当行を削除
+    # (2019/07/07時点)
     html_mod = ''
-    for idx, s in enumerate(html.splitlines()):
-        if (idx==2639-1):
+    for s in html.splitlines():
+        if '</a></span></li</ul>' in s:
             pass
         else:
             html_mod += s + os.linesep
