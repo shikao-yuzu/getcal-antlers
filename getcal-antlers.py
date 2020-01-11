@@ -14,7 +14,7 @@ URL_ANTLERS_CAL = 'http://www.so-net.ne.jp/antlers/games'
 OUTPUT_PATH = 'antlers.csv'
 
 # 年
-YEAR_NOW = '2019'
+YEAR_NOW = '2020'
 
 
 def output_game_schedule(soup: BeautifulSoup, competitions: list, idx_comp: int) -> None:
@@ -56,7 +56,7 @@ def output_game_schedule(soup: BeautifulSoup, competitions: list, idx_comp: int)
             s_time = game.find(name='p', attrs={'class': 'gameScheduleList__time'}).get_text().strip()
 
             # 終日イベントフラグと終了時刻の設定
-            if s_time == '未定':
+            if s_time == '時間未定':
                 all_day_flag = 'TRUE'
                 s_time       = ''
                 e_time       = ''
