@@ -47,13 +47,21 @@ def output_game_schedule(soup: BeautifulSoup, competitions: list, idx_comp: int)
                 sec = jaconv.z2h(sec, kana=False, digit=True, ascii=True)
 
             # 日
-            day = game.find(name='p', attrs={'class': 'gameScheduleList__date'}).get_text().strip()
-            day = jaconv.z2h(day, kana=False, digit=True, ascii=True)
-            day = re.split('[or +)(※]', day)
-            day = day[0].replace('.', '/')
+            gameScheduleList__date = game.find(name='p', attrs={'class': 'gameScheduleList__date'})
+            if gameScheduleList__date != None:
+                day = gameScheduleList__date.get_text().strip()
+                day = jaconv.z2h(day, kana=False, digit=True, ascii=True)
+                day = re.split('[or +)(※]', day)
+                day = day[0].replace('.', '/')
+            else:
+                day = '未定'
 
             # 開始時刻
-            s_time = game.find(name='p', attrs={'class': 'gameScheduleList__time'}).get_text().strip()
+            gameScheduleList__time = game.find(name='p', attrs={'class': 'gameScheduleList__time'})
+            if gameScheduleList__time != None:
+                s_time = gameScheduleList__time.get_text().strip()
+            else:
+                s_time = '時間未定'
 
             # 終日イベントフラグと終了時刻の設定
             if s_time == '時間未定':
