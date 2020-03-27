@@ -8,7 +8,7 @@ import jaconv
 
 
 # 取得対象のWebサイト
-URL_ANTLERS_CAL = 'http://www.so-net.ne.jp/antlers/games'
+URL_ANTLERS_CAL = 'https://www.antlers.co.jp/games'
 
 # 出力ファイル名
 OUTPUT_PATH = 'antlers.csv'
