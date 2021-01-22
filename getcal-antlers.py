@@ -14,7 +14,7 @@ URL_ANTLERS_CAL = 'https://www.antlers.co.jp/games'
 OUTPUT_PATH = 'antlers.csv'
 
 # 年
-YEAR_NOW = '2020'
+YEAR_NOW = '2021'
 
 
 def output_game_schedule(soup: BeautifulSoup, competitions: list, idx_comp: int) -> None:
